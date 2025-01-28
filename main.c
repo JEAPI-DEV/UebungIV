@@ -15,7 +15,7 @@ int f4(int n);
 /* Binomial coefficient functions */
 int recursiveC(int n, int k);
 int iterativeC(int n, int k);
-static int call_counter = 0; /* For tracking recursive calls */
+static int call_counter = 0;
 
 int main() {
     int n;
@@ -108,13 +108,13 @@ double dmasch(int a) {
     return prev_x;
 }
 
-int f1(int n) {
+int f1(int n) { /*  Collatz conjecture sequence. */
     printf("%d ", n);
     if (n == 1) return 1;
     return (n % 2 == 0) ? f1(n / 2) : f1(3 * n + 1);
 }
 
-int f2(int n) {
+int f2(int n) { /* Calculate square numbers */
     return (n == 1) ? 1 : f2(n - 1) + 2 * n - 1;
 }
 
@@ -123,7 +123,7 @@ int f3(int n) { /* Hofstadter Q sequence */
     return f3(n - f3(n - 1)) + f3(n - f3(n - 2));
 }
 
-int f4(int n) {
+int f4(int n) { /* McCarthy 91 */
     if (n > 100) return n - 10;
     return f4(f4(n + 11));
 }
